@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gửi Lời Yêu Thương 20/10</title>
+    <!-- Nhúng Font chữ đẹp -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(-45deg, #ff9a9e, #fecfef, #feada6, #f3a683);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Khung giao diện hiệu ứng kính mờ Glassmorphism */
+        .card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(235, 94, 139, 0.15);
+            text-align: center;
+            max-width: 480px;
+            width: 90%;
+            z-index: 10;
+            transform: scale(0.9);
+            opacity: 0;
+            animation: appStart 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        @keyframes appStart {
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            color: #d11a5b;
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 14px;
+            color: #6c5b7b;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .input-wrapper {
+            position: relative;
+            margin-bottom: 25px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 15px 25px;
+            border: 2px solid rgba(209, 26, 91, 0.2);
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 30px;
+            outline: none;
+            font-size: 16px;
+            font-weight: 700;
+            color: #4a1525;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        input[type="text"]:focus {
+            border-color: #d11a5b;
+            background: #fff;
+            box-shadow: 0 10px 20px rgba(209, 26, 91, 0.1);
+        }
+
+        button {
+            background: linear-gradient(135deg, #d11a5b, #ff6b8b);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 8px 15px rgba(209, 26, 91, 0.3);
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(209, 26, 91, 0.5);
+        }
+
+        #resultBox {
+            display: none;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px dashed rgba(209, 26, 91, 0.15);
+            animation: slideUp 0.6s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .greeting {
+            font-family: 'Dancing Script', cursive;
+            font-size: 32px;
+            color: #d11a5b;
+            margin-bottom: 15px;
+        }
+        .message {
+            font-size: 16px;
+            color: #4a4a4a;
+            line-height: 1.8;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.02), 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        /* CSS Hiệu ứng mảnh pháo hoa rơi */
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ffd166;
+            top: -20px;
+            opacity: 0;
+            z-index: 5;
+            animation: fall linear forwards;
+        }
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(105vh) rotate(720deg); opacity: 0; }
+        }
+
+        .bg-heart {
+            position: absolute;
+            color: rgba(255, 107, 139, 0.3);
+            pointer-events: none;
+            animation: floatBackground 6s ease-in-out infinite;
+            z-index: 1;
+        }
+        @keyframes floatBackground {
+            0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+            50% { transform: translateY(-20px) scale(1.1) rotate(15deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Các tim trang trí phông nền -->
+    <div class="bg-heart" style="top: 15%; left: 10%; font-size: 30px; animation-delay: 0s;">❤️</div>
+    <div class="bg-heart" style="top: 20%; right: 15%; font-size: 20px; animation-delay: 1.5s;">🌸</div>
+    <div class="bg-heart" style="bottom: 15%; left: 15%; font-size: 25px; animation-delay: 3s;">✨</div>
+    <div class="bg-heart" style="bottom: 25%; right: 10%; font-size: 35px; animation-delay: 4.5s;">❤️</div>
+
+    <div class="card">
+        <h1>Happy Women's Day</h1>
+        <div class="subtitle">Gửi lời chúc 20/10 ngọt ngào</div>
+        
+        <div class="input-wrapper">
+            <input type="text" id="visitorName" placeholder="Nhập tên của bạn hoặc người ấy..." autocomplete="off">
+        </div>
+        <button onclick="generateSpecialMessage()">Khám Phá Điều Bất Ngờ ✨</button>
+
+        <div id="resultBox">
+            <div class="greeting" id="sayHello"></div>
+            <div class="message" id="wishingText"></div>
+        </div>
+    </div>
+
+    <script>
+        const wishes = [
+            "Chúc bạn một ngày 20/10 ngập tràn niềm vui, rạng rỡ như ánh mặt trời và luôn được bao bọc trong tình yêu thương của những người xung quanh! 🌸",
+            "Mong rằng bạn luôn tự tin bước đi trên con đường mình chọn, luôn xinh đẹp, kiêu hãnh và hạnh phúc với phiên bản tuyệt vời nhất của chính mình. ✨",
+            "Chúc bạn ngày 20/10 có nhiều hoa, nhiều quà, nhận được nhiều lời yêu thương và luôn nở nụ cười thật tươi trên môi nhé! ❤️",
+            "Hy vọng mỗi ngày còn lại trong năm chứ không chỉ riêng hôm nay, bạn đều được nâng niu, chiều chuộng và hạnh phúc trọn vẹn! 🌹",
+            "Chúc bạn luôn tràn đầy năng lượng tích cực, công việc thuận buồm xuôi gió, tình cảm thăng hoa và luôn an nhiên trong tâm hồn! 🚀",
+            "Gửi đến bạn những lời chúc ấm áp nhất. Chúc bạn luôn giữ vững sự ngọt ngào, đáng yêu và gặt hái được thật nhiều thành công! 💖"
+        ];
+
+        function generateSpecialMessage() {
+            const nameInput = document.getElementById("visitorName").value.trim();
+            if (nameInput === "") {
+                alert("Bạn quên nhập tên mất rồi kìa! 😉");
+                return;
+            }
+
+            // Gán nội dung chúc mừng
+            document.getElementById("sayHello").innerText = `Thân gửi ${nameInput} ✨`;
+            const randomWish = wishes[Math.floor(Math.random() * wishes.length)];
+            document.getElementById("wishingText").innerText = randomWish;
+            
+            // Hiển thị khung kết quả
+            document.getElementById("resultBox").style.display = "block";
+
+            // Kích hoạt hiệu ứng pháo hoa tự chế
+            createConfettiEffect();
+        }
+
+        // Hàm tạo hiệu ứng pháo hoa rơi tự do không lo lỗi thư viện
+        function createConfettiEffect() {
+            const colors = ['#ff477e', '#ff7096', '#ffb3c6', '#ffd166', '#06d6a0', '#118ab2'];
+            
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti-piece');
+                
+                // Thuộc tính ngẫu nhiên cho từng mảnh
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                
+                // Kích thước ngẫu nhiên từ 8px - 15px
+                const size = Math.random() * 7 + 8;
+                confetti.style.width = size + 'px';
+                confetti.style.height = size + 'px';
+                
+                // Tốc độ rơi rơi ngẫu nhiên từ 2s - 4s
+                confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                // Thời gian trễ ngẫu nhiên để tạo hiệu ứng rơi rải rác
+                confetti.style.animationDelay = (Math.random() * 1) + 's';
+
+                document.body.appendChild(confetti);
+
+                // Tự động xóa mảnh pháo hoa sau khi rơi xong để tránh nặng máy
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>
