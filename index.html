@@ -469,5 +469,60 @@
             }
         }
     </script>
+<script>
+    // 1. Chặn phím F12, Ctrl+U, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
+    document.addEventListener('keydown', function (e) {
+        if (
+            e.keyCode === 123 || // F12
+            (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) || // Ctrl+Shift+I/J/C
+            (e.ctrlKey && e.keyCode === 85) // Ctrl+U (Xem nguồn trang)
+        ) {
+            e.preventDefault();
+            alert("Tính năng này đã bị vô hiệu hóa!");
+            return false;
+        }
+    });
+
+    // 2. Chặn click chuột phải (hiện menu context)
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    });
+
+    // 3. Phát hiện và cảnh báo khi mở DevTools (F12)
+    setInterval(function() {
+        const threshold = 160;
+        if (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) {
+            document.body.innerHTML = "<h2 style='text-align:center; margin-top:20vh; color:#d11a5b;'>Vui lòng tắt công cụ lập trình để tiếp tục xem trang web!</h2>";
+        }
+    }, 1000);
+function generateSpecialMessage() {
+    const nameInput = document.getElementById("visitorName").value.trim();
+    if (nameInput === "") {
+        alert("Bạn quên nhập tên mất rồi kìa! 😉");
+        return;
+    }
+
+    // Lấy ngày hiện tại (định dạng: YYYY-MM-DD)
+    const today = new Date().toISOString().slice(0, 10);
+    const lastClickedDate = localStorage.getItem("lastClickedDate");
+
+    // Kiểm tra xem hôm nay đã bấm chưa
+    if (lastClickedDate === today) {
+        alert("Bạn đã nhận thông điệp của ngày hôm nay rồi. Hãy quay lại vào ngày mai nhé! 💖");
+        return;
+    }
+
+    // Lưu lại mốc thời gian ngày hôm nay
+    localStorage.setItem("lastClickedDate", today);
+
+    // Tiếp tục chạy logic cũ
+    document.getElementById("sayHello").innerText = `Thân gửi ${nameInput} ✨`;
+    const randomWish = wishes[Math.floor(Math.random() * wishes.length)];
+    document.getElementById("wishingText").innerText = randomWish;
+    
+    document.getElementById("resultBox").style.display = "block";
+    createConfettiEffect();
+}
+</script>
 </body>
 </html>
