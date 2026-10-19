@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Gửi Lời Yêu Thương 20/10</title>
-    <!-- Nhúng Font chữ nghệ thuật -->
-    <link href="https://googleapis.com" rel="stylesheet">
-    
+    <!-- Font chữ nghệ thuật -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
     <style>
         * {
             box-sizing: border-box;
@@ -34,19 +34,18 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
         /* -------------------------------------------------- */
         /* HIỆU ỨNG CÁC BÔNG HOA LỚN ẨN NỀN TINH TẾ          */
         /* -------------------------------------------------- */
         .bg-flower-large {
             position: absolute;
-            font-size: clamp(120px, 20vw, 250px); /* Tự động co giãn kích thước hoa theo màn hình */
+            font-size: clamp(120px, 20vw, 250px);
             color: rgba(255, 255, 255, 0.18);
             text-shadow: 0 0 20px rgba(255, 107, 139, 0.1);
             pointer-events: none;
             z-index: 0;
             user-select: none;
-            filter: blur(1px); /* Làm mờ nhẹ để tạo chiều sâu */
+            filter: blur(1px);
         }
         .flower-top-left {
             top: -5%;
@@ -74,7 +73,6 @@
             from { transform: rotate(360deg); }
             to { transform: rotate(0deg); }
         }
-
         /* KHUNG CHÍNH (PC & LAPTOP) */
         .card {
             background: rgba(255, 255, 255, 0.72);
@@ -94,7 +92,6 @@
         @keyframes appStart {
             to { opacity: 1; }
         }
-
         h1 {
             font-family: 'Dancing Script', cursive;
             color: #d11a5b;
@@ -171,7 +168,6 @@
             border-radius: 16px;
             text-align: left;
         }
-
         /* ĐÈ CSS DÀNH RIÊNG CHO ĐIỆN THOẠI (MOBILE) */
         @media (max-width: 768px) {
             body { padding: 15px; }
@@ -206,7 +202,6 @@
                 text-align: justify;
             }
         }
-
         /* PHÔNG NỀN TIM VÀ PHÁO HOA NHỎ RƠI */
         .bg-heart-small {
             position: absolute;
@@ -233,19 +228,118 @@
             0% { transform: translateY(0) rotate(0deg); opacity: 1; }
             100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
         }
+
+        /* ========== NÚT QR NHỎ ẨN GÓC TRÊN PHẢI ========== */
+        #qrBtn {
+            position: fixed;
+            top: 14px;
+            right: 14px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: #d11a5b;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+            opacity: 0.55;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(209, 26, 91, 0.15);
+        }
+        #qrBtn:hover {
+            opacity: 1;
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.7);
+        }
+        #qrBtn:active {
+            transform: scale(0.95);
+        }
+
+        /* Modal QR */
+        #qrModal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(6px);
+            z-index: 200;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.25s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .qr-box {
+            background: white;
+            border-radius: 20px;
+            padding: 24px 28px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            max-width: 90vw;
+            position: relative;
+        }
+        .qr-box h3 {
+            font-family: 'Dancing Script', cursive;
+            color: #d11a5b;
+            font-size: 26px;
+            margin-bottom: 12px;
+        }
+        .qr-box p {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 16px;
+        }
+        #qrImage {
+            width: 200px;
+            height: 200px;
+            border-radius: 12px;
+            border: 1px solid #f0f0f0;
+        }
+        .close-qr {
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            background: none;
+            border: none;
+            font-size: 22px;
+            color: #999;
+            cursor: pointer;
+            padding: 4px 8px;
+        }
+        .close-qr:hover {
+            color: #d11a5b;
+        }
     </style>
 </head>
 <body>
-
     <!-- Các bông hoa lớn ẩn phông nền nghệ thuật -->
     <div class="bg-flower-large flower-top-left">🌸</div>
     <div class="bg-flower-large flower-mid-left">🌹</div>
     <div class="bg-flower-large flower-bottom-right">🌹</div>
-
     <!-- Các tim nhỏ lơ lửng bổ sung tầng trên -->
     <div class="bg-heart-small" style="top: 25%; left: 15%; animation-delay: 0s;">❤️</div>
     <div class="bg-heart-small" style="top: 20%; right: 20%; animation-delay: 2s;">✨</div>
     <div class="bg-heart-small" style="bottom: 25%; right: 15%; animation-delay: 4s;">❤️</div>
+
+    <!-- NÚT QR NHỎ ẨN GÓC TRÊN PHẢI -->
+    <div id="qrBtn" title="Tạo mã QR chia sẻ trang này" onclick="showQR()">📱</div>
+
+    <!-- MODAL HIỆN QR -->
+    <div id="qrModal" onclick="closeQR(event)">
+        <div class="qr-box" onclick="event.stopPropagation()">
+            <button class="close-qr" onclick="closeQR()">×</button>
+            <h3>Quét mã để vào trang</h3>
+            <p>Chia sẻ lời chúc 20/10 này cho người ấy nhé ✨</p>
+            <img id="qrImage" src="" alt="QR Code">
+        </div>
+    </div>
 
     <div class="card">
         <h1>Happy Women's Day</h1>
@@ -254,8 +348,7 @@
         <div class="input-wrapper">
             <input type="text" id="visitorName" placeholder="Nhập tên của bạn hoặc người ấy..." autocomplete="off">
         </div>
-        <button onclick="generateSpecialMessage()">Khám Phá Điều Bất Ngờ ✨</button>
-
+        <button onclick="generateSpecialMessage()">Chạm vào đây để nhận thông điệp ✨</button>
         <div id="resultBox">
             <div class="greeting" id="sayHello"></div>
             <div class="message" id="wishingText"></div>
@@ -269,7 +362,6 @@
             "Ngày 20/10 chúc bạn luôn rạng rỡ như ánh mai. Nhưng hơn cả sự tỏa sáng bên ngoài, mong tâm bạn kiên định như ngọn núi để không bị lay chuyển bởi những lời phán xét hay kỳ vọng của người đời. ✨",
             "Gửi đến bạn lời chúc 20/10 ấm áp nhất. Ý nghĩa thực sự của cuộc sống không nằm ở những điều lớn lao, mong bạn mỗi ngày thức dậy đều thấy lòng đủ rộng để bao dung cho chính những vết thương cũ. ❤️",
             "Chúc bạn một ngày Phụ nữ Việt Nam thật ý nghĩa. Mong bạn nhận ra hành trình rực rỡ nhất không phải là đi đến đỉnh cao, mà là tìm lại được sự tự tại và nguyên bản trong tâm hồn mình. 🌹",
-
             "Ngày 20/10 này, mong bạn học được cách thương mình trước khi thương người khác. Đôi khi buông bỏ một kỳ vọng sai lầm lại là cách tốt nhất để đón nhận một đời an yên, tự do đúng nghĩa. 🍃",
             "Chúc bạn luôn xinh đẹp và tự tin. Nhưng hãy nhớ rằng vẻ đẹp tối thượng của người phụ nữ là sự tĩnh lặng trước nghịch cảnh, giữ vững một tâm thế thản nhiên dù dòng đời có xoay vần ra sao. 🚀",
             "Mong rằng ngày 20/10 mang đến cho bạn những khoảnh khắc vui vẻ. Và mong bạn sớm nhận ra, món quà xa xỉ nhất thế gian này chính là một trái tim tự do, không thuộc về bất kỳ sự ràng buộc nào. 💖",
@@ -316,7 +408,6 @@
             "Chúc bạn 20/10 rực rỡ và viên mãn. Hãy để những muộn phiền cũ trôi theo dòng nước trôi đi, giữ lại sự tĩnh lặng để lắng nghe giai điệu hạnh phúc vốn luôn ngân vang bên trong bạn. 🌹",
             "Chúc bạn luôn giữ được ngọn lửa đam mê. Nhưng hãy sưởi ấm nó bằng một tâm thế dung dị, không cuồng nhiệt đến mức tự thiêu rụi bản thân, biết đủ để hành trình luôn bền vững. 🔥",
             "Mừng ngày 20/10! Chúc bạn luôn là một thực thể độc lập, tự tin và đầy kiêu hãnh, sở hữu một cuộc đời nhẹ nhàng, tự tại mà không một thế lực nào có thể làm lay chuyển. ✨"
-
         ];
 
         function generateSpecialMessage() {
@@ -325,13 +416,11 @@
                 alert("Bạn quên nhập tên mất rồi kìa! 😉");
                 return;
             }
-
             document.getElementById("sayHello").innerText = `Thân gửi ${nameInput} ✨`;
             const randomWish = wishes[Math.floor(Math.random() * wishes.length)];
             document.getElementById("wishingText").innerText = randomWish;
             
             document.getElementById("resultBox").style.display = "block";
-
             createConfettiEffect();
         }
 
@@ -346,21 +435,34 @@
                 
                 confetti.style.left = Math.random() * 100 + 'vw';
                 confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-
                 confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
                 
-                const size = Math.random() * 5 + 6; // Kích thước mảnh pháo hoa vừa phải trên mobile
+                const size = Math.random() * 5 + 6;
                 confetti.style.width = size + 'px';
                 confetti.style.height = size + 'px';
                 
                 confetti.style.animationDuration = (Math.random() * 1.5 + 2) + 's';
                 confetti.style.animationDelay = (Math.random() * 0.5) + 's';
-
                 document.body.appendChild(confetti);
-
                 setTimeout(() => {
                     confetti.remove();
                 }, 4000);
+            }
+        }
+
+        // ========== HÀM TẠO & HIỆN QR ==========
+        function showQR() {
+            const currentUrl = "womensday-blue-alpha.vercel.app";
+            // Dùng API miễn phí tạo QR
+            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(currentUrl)}&color=d11a5b`;
+            document.getElementById('qrImage').src = qrUrl;
+            document.getElementById('qrModal').style.display = 'flex';
+        }
+
+        function closeQR(e) {
+            // Nếu click vào nền đen hoặc nút × thì đóng
+            if (!e || e.target === document.getElementById('qrModal') || e.target.classList.contains('close-qr')) {
+                document.getElementById('qrModal').style.display = 'none';
             }
         }
     </script>
