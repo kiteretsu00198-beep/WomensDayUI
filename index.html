@@ -470,31 +470,40 @@
         }
     </script>
 <script>
-    // 1. Chặn phím F12, Ctrl+U, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
-    document.addEventListener('keydown', function (e) {
-        if (
-            e.keyCode === 123 || // F12
-            (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) || // Ctrl+Shift+I/J/C
-            (e.ctrlKey && e.keyCode === 85) // Ctrl+U (Xem nguồn trang)
-        ) {
+  // Hàm kiểm tra xem có phải thiết bị di động hay không
+    function isMobileDevice() {
+        return (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) || (navigator.maxTouchPoints > 0 && window.innerWidth <= 1024);
+    }
+
+    // CHỈ CHẠY TÍNH NĂNG CHẶN NẾU ĐÂY LÀ MÁY TÍNH (DESKTOP)
+    if (!isMobileDevice()) {
+        
+        // 1. Chặn phím F12, Ctrl+U, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
+        document.addEventListener('keydown', function (e) {
+            if (
+                e.keyCode === 123 || // F12
+                (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) || // Ctrl+Shift+I/J/C
+                (e.ctrlKey && e.keyCode === 85) // Ctrl+U (Xem nguồn trang)
+            ) {
+                e.preventDefault();
+                alert("Tính năng này đã bị vô hiệu hóa trên máy tính!");
+                return false;
+            }
+        });
+
+        // 2. Chặn click chuột phải
+        document.addEventListener('contextmenu', function (e) {
             e.preventDefault();
-            alert("Tính năng này đã bị vô hiệu hóa!");
-            return false;
-        }
-    });
+        });
 
-    // 2. Chặn click chuột phải (hiện menu context)
-    document.addEventListener('contextmenu', function (e) {
-        e.preventDefault();
-    });
-
-    // 3. Phát hiện và cảnh báo khi mở DevTools (F12)
-    setInterval(function() {
-        const threshold = 160;
-        if (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) {
-            document.body.innerHTML = "<h2 style='text-align:center; margin-top:20vh; color:#d11a5b;'>Vui lòng tắt công cụ lập trình để tiếp tục xem trang web!</h2>";
-        }
-    }, 1000);
+        // 3. Phát hiện và cảnh báo khi mở DevTools (F12) trên PC
+        setInterval(function() {
+            const threshold = 160;
+            if (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) {
+                document.body.innerHTML = "<h2 style='text-align:center; margin-top:20vh; color:#d11a5b;'>Vui lòng tắt công cụ lập trình để tiếp tục xem trang web!</h2>";
+            }
+        }, 1000);
+    }
 function generateSpecialMessage() {
     const nameInput = document.getElementById("visitorName").value.trim();
     if (nameInput === "") {
