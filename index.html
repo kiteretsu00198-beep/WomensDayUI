@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Gửi Lời Yêu Thương 20/10</title>
     <!-- Nhúng Font chữ đẹp -->
     <link href="https://googleapis.com" rel="stylesheet">
@@ -12,18 +12,23 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-tap-highlight-color: transparent; /* Xóa bóng mờ khi chạm trên điện thoại */
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Ngăn tình trạng giật lag cuộn trang trên mobile */
         }
         body {
             font-family: 'Quicksand', sans-serif;
             background: linear-gradient(-45deg, #ff9a9e, #fecfef, #feada6, #f3a683);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
-            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
             position: relative;
+            padding: 15px;
         }
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
@@ -31,53 +36,55 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Khung giao diện hiệu ứng kính mờ Glassmorphism */
+        /* Khung giao diện tối ưu chuẩn responsive cho điện thoại */
         .card {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.4);
-            padding: 40px 30px;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(235, 94, 139, 0.15);
+            padding: 30px 20px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(235, 94, 139, 0.15);
             text-align: center;
-            max-width: 480px;
-            width: 90%;
+            width: 100%;
+            max-width: 400px; /* Thu nhỏ chiều rộng để cân đối trên mobile */
             z-index: 10;
-            transform: scale(0.9);
+            transform: scale(0.95);
             opacity: 0;
-            animation: appStart 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            animation: appStart 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.1) forwards;
         }
         @keyframes appStart {
             to { transform: scale(1); opacity: 1; }
         }
 
+        /* Thu nhỏ size chữ tiêu đề để không bị vỡ dòng trên màn hình hẹp */
         h1 {
             font-family: 'Dancing Script', cursive;
             color: #d11a5b;
-            font-size: 42px;
-            margin-bottom: 10px;
+            font-size: 32px; 
+            margin-bottom: 5px;
+            line-height: 1.2;
         }
         .subtitle {
-            font-size: 14px;
+            font-size: 12px;
             color: #6c5b7b;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
         }
 
         .input-wrapper {
-            position: relative;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
+            width: 100%;
         }
         input[type="text"] {
             width: 100%;
-            padding: 15px 25px;
+            padding: 14px 20px;
             border: 2px solid rgba(209, 26, 91, 0.2);
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
             outline: none;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             color: #4a1525;
             text-align: center;
@@ -86,61 +93,61 @@
         input[type="text"]:focus {
             border-color: #d11a5b;
             background: #fff;
-            box-shadow: 0 10px 20px rgba(209, 26, 91, 0.1);
+            box-shadow: 0 5px 15px rgba(209, 26, 91, 0.1);
         }
 
         button {
             background: linear-gradient(135deg, #d11a5b, #ff6b8b);
             color: white;
             border: none;
-            padding: 15px 40px;
-            font-size: 16px;
+            padding: 14px 35px;
+            font-size: 15px;
             font-weight: 700;
-            border-radius: 30px;
+            border-radius: 25px;
             cursor: pointer;
-            box-shadow: 0 8px 15px rgba(209, 26, 91, 0.3);
-            transition: all 0.3s ease;
+            box-shadow: 0 6px 12px rgba(209, 26, 91, 0.25);
+            transition: all 0.2s ease;
+            width: 100%; /* Cho nút bấm full chiều rộng trên điện thoại để dễ tương tác */
         }
-        button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 24px rgba(209, 26, 91, 0.5);
+        button:active {
+            transform: scale(0.98);
         }
 
+        /* Hộp hiển thị kết quả chúc mừng tối ưu khoảng cách */
         #resultBox {
             display: none;
-            margin-top: 30px;
+            margin-top: 25px;
             padding-top: 20px;
             border-top: 2px dashed rgba(209, 26, 91, 0.15);
-            animation: slideUp 0.6s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+            animation: slideUp 0.5s ease forwards;
         }
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .greeting {
             font-family: 'Dancing Script', cursive;
-            font-size: 32px;
+            font-size: 26px;
             color: #d11a5b;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
         .message {
-            font-size: 16px;
+            font-size: 14.5px; /* Giảm nhẹ cỡ chữ lời chúc để đọc vừa mắt trên điện thoại */
             color: #4a4a4a;
-            line-height: 1.8;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 16px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.02), 0 5px 15px rgba(0,0,0,0.05);
-            position: relative;
+            line-height: 1.6;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            text-align: justify; /* Căn đều hai bên lề để lời chúc trông gọn gàng */
         }
 
-        /* CSS Hiệu ứng mảnh pháo hoa rơi */
+        /* Hiệu ứng pháo hoa rơi */
         .confetti-piece {
             position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #ffd166;
+            width: 8px;
+            height: 8px;
             top: -20px;
             opacity: 0;
             z-index: 5;
@@ -148,29 +155,29 @@
         }
         @keyframes fall {
             0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(105vh) rotate(720deg); opacity: 0; }
+            100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
         }
 
         .bg-heart {
             position: absolute;
-            color: rgba(255, 107, 139, 0.3);
+            color: rgba(255, 107, 139, 0.25);
             pointer-events: none;
             animation: floatBackground 6s ease-in-out infinite;
             z-index: 1;
         }
         @keyframes floatBackground {
             0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
-            50% { transform: translateY(-20px) scale(1.1) rotate(15deg); }
+            50% { transform: translateY(-15px) scale(1.05) rotate(10deg); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Các tim trang trí phông nền -->
-    <div class="bg-heart" style="top: 15%; left: 10%; font-size: 30px; animation-delay: 0s;">❤️</div>
-    <div class="bg-heart" style="top: 20%; right: 15%; font-size: 20px; animation-delay: 1.5s;">🌸</div>
-    <div class="bg-heart" style="bottom: 15%; left: 15%; font-size: 25px; animation-delay: 3s;">✨</div>
-    <div class="bg-heart" style="bottom: 25%; right: 10%; font-size: 35px; animation-delay: 4.5s;">❤️</div>
+    <!-- Các tim trang trí phông nền lãng mạn -->
+    <div class="bg-heart" style="top: 8%; left: 8%; font-size: 24px; animation-delay: 0s;">❤️</div>
+    <div class="bg-heart" style="top: 12%; right: 10%; font-size: 18px; animation-delay: 1.5s;">🌸</div>
+    <div class="bg-heart" style="bottom: 8%; left: 12%; font-size: 20px; animation-delay: 3s;">✨</div>
+    <div class="bg-heart" style="bottom: 15%; right: 8%; font-size: 26px; animation-delay: 4.5s;">❤️</div>
 
     <div class="card">
         <h1>Happy Women's Day</h1>
@@ -204,47 +211,39 @@
                 return;
             }
 
-            // Gán nội dung chúc mừng
             document.getElementById("sayHello").innerText = `Thân gửi ${nameInput} ✨`;
             const randomWish = wishes[Math.floor(Math.random() * wishes.length)];
             document.getElementById("wishingText").innerText = randomWish;
             
-            // Hiển thị khung kết quả
             document.getElementById("resultBox").style.display = "block";
 
-            // Kích hoạt hiệu ứng pháo hoa tự chế
             createConfettiEffect();
         }
 
-        // Hàm tạo hiệu ứng pháo hoa rơi tự do không lo lỗi thư viện
+        // Tối ưu số lượng pháo hoa trên mobile (khoảng 60 mảnh) để không gây đứng máy
         function createConfettiEffect() {
             const colors = ['#ff477e', '#ff7096', '#ffb3c6', '#ffd166', '#06d6a0', '#118ab2'];
             
-            for (let i = 0; i < 100; i++) {
+            for (let i = 0; i < 60; i++) {
                 const confetti = document.createElement('div');
                 confetti.classList.add('confetti-piece');
                 
-                // Thuộc tính ngẫu nhiên cho từng mảnh
                 confetti.style.left = Math.random() * 100 + 'vw';
                 confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
                 confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
                 
-                // Kích thước ngẫu nhiên từ 8px - 15px
-                const size = Math.random() * 7 + 8;
+                const size = Math.random() * 5 + 6; // Kích thước mảnh pháo hoa vừa phải trên mobile
                 confetti.style.width = size + 'px';
                 confetti.style.height = size + 'px';
                 
-                // Tốc độ rơi rơi ngẫu nhiên từ 2s - 4s
-                confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
-                // Thời gian trễ ngẫu nhiên để tạo hiệu ứng rơi rải rác
-                confetti.style.animationDelay = (Math.random() * 1) + 's';
+                confetti.style.animationDuration = (Math.random() * 1.5 + 2) + 's';
+                confetti.style.animationDelay = (Math.random() * 0.5) + 's';
 
                 document.body.appendChild(confetti);
 
-                // Tự động xóa mảnh pháo hoa sau khi rơi xong để tránh nặng máy
                 setTimeout(() => {
                     confetti.remove();
-                }, 5000);
+                }, 4000);
             }
         }
     </script>
