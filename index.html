@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Gửi Lời Yêu Thương 20/10</title>
-    <!-- Nhúng Font chữ đẹp -->
+    <!-- Nhúng Font chữ nghệ thuật -->
     <link href="https://googleapis.com" rel="stylesheet">
     
     <style>
@@ -12,12 +12,12 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            -webkit-tap-highlight-color: transparent; /* Xóa bóng mờ khi chạm trên điện thoại */
+            -webkit-tap-highlight-color: transparent;
         }
         html, body {
             width: 100%;
             height: 100%;
-            overflow: hidden; /* Ngăn tình trạng giật lag cuộn trang trên mobile */
+            overflow: hidden;
         }
         body {
             font-family: 'Quicksand', sans-serif;
@@ -28,7 +28,6 @@
             justify-content: center;
             align-items: center;
             position: relative;
-            padding: 15px;
         }
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
@@ -36,114 +35,191 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Khung giao diện tối ưu chuẩn responsive cho điện thoại */
-        .card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            padding: 30px 20px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(235, 94, 139, 0.15);
-            text-align: center;
-            width: 100%;
-            max-width: 400px; /* Thu nhỏ chiều rộng để cân đối trên mobile */
-            z-index: 10;
-            transform: scale(0.95);
-            opacity: 0;
-            animation: appStart 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.1) forwards;
+        /* -------------------------------------------------- */
+        /* HIỆU ỨNG CÁC BÔNG HOA LỚN ẨN NỀN TINH TẾ          */
+        /* -------------------------------------------------- */
+        .bg-flower-large {
+            position: absolute;
+            font-size: clamp(120px, 20vw, 250px); /* Tự động co giãn kích thước hoa theo màn hình */
+            color: rgba(255, 255, 255, 0.18);
+            text-shadow: 0 0 20px rgba(255, 107, 139, 0.1);
+            pointer-events: none;
+            z-index: 0;
+            user-select: none;
+            filter: blur(1px); /* Làm mờ nhẹ để tạo chiều sâu */
         }
-        @keyframes appStart {
-            to { transform: scale(1); opacity: 1; }
+        .flower-top-left {
+            top: -5%;
+            left: -5%;
+            animation: rotateSlow 25s linear infinite;
+        }
+        .flower-bottom-right {
+            bottom: -5%;
+            right: -5%;
+            animation: rotateSlowReverse 30s linear infinite;
+        }
+        .flower-mid-left {
+            bottom: 20%;
+            left: -8%;
+            font-size: clamp(90px, 15vw, 180px);
+            opacity: 0.12;
+            animation: rotateSlow 20s linear infinite;
+        }
+        
+        @keyframes rotateSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes rotateSlowReverse {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
         }
 
-        /* Thu nhỏ size chữ tiêu đề để không bị vỡ dòng trên màn hình hẹp */
+        /* KHUNG CHÍNH (PC & LAPTOP) */
+        .card {
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            border-radius: 28px;
+            box-shadow: 0 25px 50px rgba(235, 94, 139, 0.12);
+            text-align: center;
+            z-index: 10;
+            opacity: 0;
+            animation: appStart 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.15) forwards;
+            
+            width: 520px;
+            padding: 45px 40px;
+        }
+        @keyframes appStart {
+            to { opacity: 1; }
+        }
+
         h1 {
             font-family: 'Dancing Script', cursive;
             color: #d11a5b;
-            font-size: 32px; 
-            margin-bottom: 5px;
+            font-size: 46px; 
+            margin-bottom: 10px;
             line-height: 1.2;
+            white-space: nowrap;
         }
         .subtitle {
-            font-size: 12px;
             color: #6c5b7b;
-            margin-bottom: 25px;
-            letter-spacing: 0.5px;
             text-transform: uppercase;
-        }
-
-        .input-wrapper {
-            margin-bottom: 20px;
-            width: 100%;
+            font-size: 14px; 
+            margin-bottom: 35px;
+            letter-spacing: 1px;
         }
         input[type="text"] {
-            width: 100%;
-            padding: 14px 20px;
-            border: 2px solid rgba(209, 26, 91, 0.2);
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 25px;
+            border: 2px solid rgba(209, 26, 91, 0.15);
+            background: rgba(255, 255, 255, 0.95);
             outline: none;
-            font-size: 15px;
             font-weight: 700;
             color: #4a1525;
             text-align: center;
             transition: all 0.3s ease;
+            width: 90%;
+            padding: 16px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            margin-bottom: 25px;
         }
         input[type="text"]:focus {
             border-color: #d11a5b;
             background: #fff;
-            box-shadow: 0 5px 15px rgba(209, 26, 91, 0.1);
+            box-shadow: 0 10px 20px rgba(209, 26, 91, 0.08);
         }
-
         button {
             background: linear-gradient(135deg, #d11a5b, #ff6b8b);
             color: white;
             border: none;
-            padding: 14px 35px;
-            font-size: 15px;
             font-weight: 700;
-            border-radius: 25px;
             cursor: pointer;
-            box-shadow: 0 6px 12px rgba(209, 26, 91, 0.25);
+            box-shadow: 0 8px 15px rgba(209, 26, 91, 0.2);
             transition: all 0.2s ease;
-            width: 100%; /* Cho nút bấm full chiều rộng trên điện thoại để dễ tương tác */
+            padding: 16px 50px;
+            font-size: 16px;
+            border-radius: 30px;
         }
         button:active {
             transform: scale(0.98);
         }
-
-        /* Hộp hiển thị kết quả chúc mừng tối ưu khoảng cách */
         #resultBox {
             display: none;
-            margin-top: 25px;
-            padding-top: 20px;
-            border-top: 2px dashed rgba(209, 26, 91, 0.15);
-            animation: slideUp 0.5s ease forwards;
+            border-top: 2px dashed rgba(209, 26, 91, 0.12);
+            animation: slideUp 0.6s ease forwards;
+            margin-top: 35px; 
+            padding-top: 25px;
         }
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         .greeting {
             font-family: 'Dancing Script', cursive;
-            font-size: 26px;
             color: #d11a5b;
-            margin-bottom: 12px;
+            font-size: 36px; 
+            margin-bottom: 15px;
         }
         .message {
-            font-size: 14.5px; /* Giảm nhẹ cỡ chữ lời chúc để đọc vừa mắt trên điện thoại */
             color: #4a4a4a;
-            line-height: 1.6;
             background: rgba(255, 255, 255, 0.95);
-            padding: 15px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
-            text-align: justify; /* Căn đều hai bên lề để lời chúc trông gọn gàng */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            font-size: 16px;
+            line-height: 1.8;
+            padding: 22px;
+            border-radius: 16px;
+            text-align: left;
         }
 
-        /* Hiệu ứng pháo hoa rơi */
+        /* ĐÈ CSS DÀNH RIÊNG CHO ĐIỆN THOẠI (MOBILE) */
+        @media (max-width: 768px) {
+            body { padding: 15px; }
+            .card {
+                width: 100%;
+                max-width: 380px; 
+                padding: 30px 15px;
+                background: rgba(255, 255, 255, 0.78);
+            }
+            h1 { font-size: 28px; margin-bottom: 5px; }
+            .subtitle { font-size: 11px; margin-bottom: 25px; }
+            input[type="text"] {
+                width: 100%;
+                padding: 13px 20px;
+                border-radius: 25px;
+                font-size: 14.5px;
+                margin-bottom: 20px;
+            }
+            button {
+                width: 100%;
+                padding: 14px 20px;
+                font-size: 15px;
+                border-radius: 25px;
+            }
+            #resultBox { margin-top: 25px; padding-top: 20px; }
+            .greeting { font-size: 26px; margin-bottom: 10px; }
+            .message {
+                font-size: 14px;
+                line-height: 1.6;
+                padding: 15px;
+                border-radius: 12px;
+                text-align: justify;
+            }
+        }
+
+        /* PHÔNG NỀN TIM VÀ PHÁO HOA NHỎ RƠI */
+        .bg-heart-small {
+            position: absolute;
+            color: rgba(255, 107, 139, 0.2);
+            pointer-events: none;
+            animation: floatBackground 6s ease-in-out infinite;
+            z-index: 1;
+            font-size: 20px;
+        }
+        @keyframes floatBackground {
+            0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+            50% { transform: translateY(-15px) scale(1.05) rotate(10deg); }
+        }
         .confetti-piece {
             position: absolute;
             width: 8px;
@@ -157,27 +233,19 @@
             0% { transform: translateY(0) rotate(0deg); opacity: 1; }
             100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
         }
-
-        .bg-heart {
-            position: absolute;
-            color: rgba(255, 107, 139, 0.25);
-            pointer-events: none;
-            animation: floatBackground 6s ease-in-out infinite;
-            z-index: 1;
-        }
-        @keyframes floatBackground {
-            0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
-            50% { transform: translateY(-15px) scale(1.05) rotate(10deg); }
-        }
     </style>
 </head>
 <body>
 
-    <!-- Các tim trang trí phông nền lãng mạn -->
-    <div class="bg-heart" style="top: 8%; left: 8%; font-size: 24px; animation-delay: 0s;">❤️</div>
-    <div class="bg-heart" style="top: 12%; right: 10%; font-size: 18px; animation-delay: 1.5s;">🌸</div>
-    <div class="bg-heart" style="bottom: 8%; left: 12%; font-size: 20px; animation-delay: 3s;">✨</div>
-    <div class="bg-heart" style="bottom: 15%; right: 8%; font-size: 26px; animation-delay: 4.5s;">❤️</div>
+    <!-- Các bông hoa lớn ẩn phông nền nghệ thuật -->
+    <div class="bg-flower-large flower-top-left">🌸</div>
+    <div class="bg-flower-large flower-mid-left">🌹</div>
+    <div class="bg-flower-large flower-bottom-right">🌹</div>
+
+    <!-- Các tim nhỏ lơ lửng bổ sung tầng trên -->
+    <div class="bg-heart-small" style="top: 25%; left: 15%; animation-delay: 0s;">❤️</div>
+    <div class="bg-heart-small" style="top: 20%; right: 20%; animation-delay: 2s;">✨</div>
+    <div class="bg-heart-small" style="bottom: 25%; right: 15%; animation-delay: 4s;">❤️</div>
 
     <div class="card">
         <h1>Happy Women's Day</h1>
@@ -195,13 +263,60 @@
     </div>
 
     <script>
+        // Danh sách câu chúc có chiều sâu tâm lý lắng đọng sâu sắc
         const wishes = [
-            "Chúc bạn một ngày 20/10 ngập tràn niềm vui, rạng rỡ như ánh mặt trời và luôn được bao bọc trong tình yêu thương của những người xung quanh! 🌸",
-            "Mong rằng bạn luôn tự tin bước đi trên con đường mình chọn, luôn xinh đẹp, kiêu hãnh và hạnh phúc với phiên bản tuyệt vời nhất của chính mình. ✨",
-            "Chúc bạn ngày 20/10 có nhiều hoa, nhiều quà, nhận được nhiều lời yêu thương và luôn nở nụ cười thật tươi trên môi nhé! ❤️",
-            "Hy vọng mỗi ngày còn lại trong năm chứ không chỉ riêng hôm nay, bạn đều được nâng niu, chiều chuộng và hạnh phúc trọn vẹn! 🌹",
-            "Chúc bạn luôn tràn đầy năng lượng tích cực, công việc thuận buồm xuôi gió, tình cảm thăng hoa và luôn an nhiên trong tâm hồn! 🚀",
-            "Gửi đến bạn những lời chúc ấm áp nhất. Chúc bạn luôn giữ vững sự ngọt ngào, đáng yêu và gặt hái được thật nhiều thành công! 💖"
+            "Chúc bạn ngày 20/10 ngập tràn yêu thương. Mong bạn hiểu rằng thế giới ngoài kia dẫu có vội vã, chỉ cần giữ được một góc lặng trong tim, mọi bão giông đều hóa thành mây khói. 🌸",
+            "Ngày 20/10 chúc bạn luôn rạng rỡ như ánh mai. Nhưng hơn cả sự tỏa sáng bên ngoài, mong tâm bạn kiên định như ngọn núi để không bị lay chuyển bởi những lời phán xét hay kỳ vọng của người đời. ✨",
+            "Gửi đến bạn lời chúc 20/10 ấm áp nhất. Ý nghĩa thực sự của cuộc sống không nằm ở những điều lớn lao, mong bạn mỗi ngày thức dậy đều thấy lòng đủ rộng để bao dung cho chính những vết thương cũ. ❤️",
+            "Chúc bạn một ngày Phụ nữ Việt Nam thật ý nghĩa. Mong bạn nhận ra hành trình rực rỡ nhất không phải là đi đến đỉnh cao, mà là tìm lại được sự tự tại và nguyên bản trong tâm hồn mình. 🌹",
+
+            "Ngày 20/10 này, mong bạn học được cách thương mình trước khi thương người khác. Đôi khi buông bỏ một kỳ vọng sai lầm lại là cách tốt nhất để đón nhận một đời an yên, tự do đúng nghĩa. 🍃",
+            "Chúc bạn luôn xinh đẹp và tự tin. Nhưng hãy nhớ rằng vẻ đẹp tối thượng của người phụ nữ là sự tĩnh lặng trước nghịch cảnh, giữ vững một tâm thế thản nhiên dù dòng đời có xoay vần ra sao. 🚀",
+            "Mong rằng ngày 20/10 mang đến cho bạn những khoảnh khắc vui vẻ. Và mong bạn sớm nhận ra, món quà xa xỉ nhất thế gian này chính là một trái tim tự do, không thuộc về bất kỳ sự ràng buộc nào. 💖",
+            "Chúc người phụ nữ tuyệt vời hôm nay có một ngày trọn vẹn. Người ta thường chúc bạn hạnh phúc, nhưng tôi mong tâm bạn luôn đủ sáng để nhìn thấu rằng hạnh phúc vốn dĩ tự thân chứ chẳng cầu cạnh từ ai. ☀️",
+            "Chào ngày 20/10! Sống một cuộc đời nhẹ tênh không phải là trốn chạy trách nhiệm, mà là khi bạn biết yêu lấy cả những phần chưa hoàn hảo của bản thân mình mà không mưu cầu sự công nhận. 🌊",
+            "Gửi ngàn lời chúc tốt đẹp nhất đến bạn ngày 20/10. Mong bạn giữa những lo toan cơm áo vẫn thỉnh thoảng dừng lại, để lắng nghe tiếng nói sâu thẳm của đứa trẻ bên trong đang cần được vỗ về. 🍀",
+            "Chúc bạn 20/10 ngập tràn niềm vui. Hạnh phúc không phải là có tất cả mọi thứ, mà là khi lòng bạn không còn gợn chút âu lo, thong dong bước đi mà không cần nhìn lại quá khứ. 🌸",
+            "Mừng ngày 20/10, chúc bạn có đủ mạnh mẽ để tiến về phía trước. Nhưng cũng mong bạn đủ dịu dàng với chính mình, chấp nhận rằng có những ngày yếu lòng cũng là một loại sức mạnh. ✨",
+            "Chúc bạn một ngày 20/10 thật rực rỡ bên những người thân yêu. Đi qua nửa đời người mới hiểu, bình an đích thực là khi đứng trước một người từng làm mình tổn thương mà lòng không còn chút gợn sóng. ❤️",
+            "Gửi đóa hoa lòng tặng bạn ngày 20/10. Cuộc sống này vốn dĩ là một dòng chảy, mong tâm bạn không cố chấp bám víu vào bất cứ điều gì, cứ thuận theo tự nhiên mà an lành, tự tại. 🌹",
+            "Chúc bạn 20/10 ngọt ngào. Trang sức lộng lẫy nhất của người phụ nữ không phải vàng ngọc, mà là năng lượng từ một tâm hồn đã đi qua nhiều đổ vỡ nhưng vẫn giữ được sự thiện lương, trong trẻo. 💎",
+            "Ngày 20/10, chúc bạn gặt hái được nhiều thành công trong sự nghiệp. Nhưng đừng quên quay về chăm sóc thế giới bên trong, bởi nếu ngôi nhà nội tại không vững, mọi lâu đài bên ngoài cũng chỉ là hư vô. 🌟",
+            "Chúc bạn luôn giữ được nụ cười trong sáng. Giữa một thế giới luôn đòi hỏi người phụ nữ phải hoàn hảo, mong bạn can đảm sống thật với cảm xúc của mình, dẫu đó là những vết xước thầm kín. 🎈",
+            "Mong bạn ngày 20/10 nhận được thật nhiều sự trân trọng. Nhưng trên hết, mong bạn không cần đợi ai ban phát sự trân trọng ấy, tự mình nâng niu và làm chủ cuộc đời mình mới là chân lý. ☁️",
+            "Chúc mừng ngày Phụ nữ Việt Nam! Đừng chỉ sống như một đóa hồng rực rỡ chỉ để người ta ngắm nghía, hãy sống như một nhành cỏ dại, âm thầm bám rễ sâu vào đất và kiêu hãnh sinh tồn. 🌿",
+            "Gửi lời chúc bình an nhất đến bạn ngày 20/10. Khi bạn có đủ tĩnh lặng để cảm nhận hiện tại, bạn sẽ thấy mọi danh vọng bấy lâu nay theo đuổi suy cho cùng cũng chỉ là mây khói thoảng qua. 💖",
+            "Chúc bạn một ngày 20/10 ngập tràn năng lượng. Mong tâm bạn phẳng lặng như mặt hồ mùa thu, không phải vì cuộc đời không có sóng gió, mà vì bạn đã học được cách làm hòa với chúng. 🍁",
+            "Chúc người bạn trân quý ngày 20/10 hạnh phúc. Khi lòng không còn chấp niệm vào việc đúng hay sai, thắng hay thua, đó chính là thời điểm sự bình an tự khắc gõ cửa cuộc đời bạn. ✨",
+            "Ngày 20/10 chúc bạn có một tâm hồn nở hoa. Sống ở đời, điều khó nhất không phải là nhìn thấu tâm can người khác, mà là đối diện thẳng thắn và ôm lấy những phần tối tăm nhất của chính mình. 🌸",
+            "Gửi bạn lời chúc 20/10 chân thành nhất. Mong bạn bớt nhìn vào những gì mình chưa có, học cách biết ơn những gì đang hiện hữu, bởi sự đủ đầy đích thực bắt nguồn từ một trái tim biết đủ. ❤️",
+            "Chúc bạn luôn xinh đẹp theo dòng thời gian. Người phụ nữ trí tuệ là người biết dùng sự im lặng đúng lúc để chữa lành, dùng sự thản nhiên để bước qua những nhiễu nhương của cuộc đời. 🌹",
+            "Mừng ngày 20/10, chúc bạn luôn tìm thấy niềm vui từ những điều nhỏ nhặt. Khi tâm bạn không còn chứa đựng những oán hận, khoảng trống ấy tự động sẽ được lấp đầy bởi ánh nắng và tình yêu. ☀️",
+            "Chúc bạn 20/10 tràn đầy tiếng cười. Hãy cứ để sự bình an dẫn lối, vì tất cả những hào nhoáng ngoài kia nếu phải đánh đổi bằng sự bất an trong lòng thì đều là một giao dịch thua lỗ. 🧭",
+            "Mong bạn ngày 20/10 tràn ngập hoa hồng. Tự do thực sự không phải là làm những gì mình thích, mà là khi bạn có đủ dũng khí để từ chối những giá trị không thuộc về bản chất của mình. 🕊️",
+            "Gửi lời chúc 20/10 ngọt ngào đến bạn. Mong bạn sống một đời an ổn, không phải vì thế giới này ngừng bão giông, mà vì bạn đã tự xây cho mình một đức tin vững chãi bên trong cơ thể. 🍀",
+            "Chúc bạn ngày 20/10 vạn sự hanh thông. Người có tâm không chấp niệm, nhìn mọi thứ bằng đôi mắt thấu suốt sẽ nhận ra vấp ngã hay thành công đều là những bài học cần thiết để trưởng thành. 💖",
+            "Chúc mừng ngày 20/10! Sống thong dong tự tại là khi bạn không còn bị ảnh hưởng bởi những lời khen chê, biết mình là ai và lặng lẽ tỏa hương theo cách riêng của mình. 🍃",
+            "Chúc bạn một ngày 20/10 ngập tràn tình yêu thương. Lòng bao dung lớn nhất không phải là tha thứ cho người khác, mà là tha thứ cho những sai lầm trong quá khứ của chính bản thân mình. 🥰",
+            "Ngày 20/10 chúc bạn luôn tươi trẻ. Đừng vội vã chạy theo những tiêu chuẩn của đám đông, vẻ đẹp sâu sắc nhất của người phụ nữ chính là nét bình yên toát ra từ một trí tuệ chín chắn. 🌸",
+            "Gửi lời chúc bình an và may mắn nhất đến bạn nhân ngày 20/10. Đi khắp thế gian, bến đỗ an toàn nhất không phải là một bờ vai, mà là khi bản thân bạn trở thành một điểm tựa vững vàng. ❤️",
+            "Chúc bạn 20/10 thật nhiều niềm vui. Mong lòng bạn an tĩnh như đêm rằm, dùng sự thấu hiểu để bao dung cho những điều bất như ý, biến nghịch cảnh thành chất liệu của sự tự tại. 🌕",
+            "Chúc người phụ nữ tuyệt vời ngày 20/10 tràn đầy năng lượng. Khi bạn ngừng cố gắng thay đổi người khác và bắt đầu chấp nhận họ như họ vốn là, bạn sẽ thấy cuộc đời nhẹ đi một nửa. 🌹",
+            "Mừng ngày Phụ nữ Việt Nam! Hãy cứ kiên cường tỏa sáng khi cần, nhưng cũng hãy cho phép mình được buông lơi, được lười biếng để cơ thể và tâm hồn được tái tạo trong sự bình lặng. 🔋",
+            "Chúc bạn ngày 20/10 nhận được nhiều lời chúc hay. Mong bạn sống một cuộc đời thanh cao, nơi mà giá trị của bạn được đo bằng sự bình yên bạn mang lại cho những người xung quanh. ✨",
+            "Gửi ngàn đóa hồng yêu thương đến bạn ngày 20/10. Mong bạn luôn an trú trong hiện tại, bởi quá khứ đã qua và tương lai thì chưa đến, chỉ có phút giây này là liều thuốc chữa lành tốt nhất. 💐",
+            "Chúc bạn 20/10 luôn tràn đầy nụ cười rạng rỡ. Hãy nhớ rằng khi tâm bạn đạt đến trạng thái không mong cầu, bạn sẽ không còn sợ hãi bất cứ sự mất mát hay chia ly nào trên đời. 💎",
+            "Chúc bạn một ngày 20/10 ấm áp vô ngần. Cứ thong dong mà sống, bởi vì bông hoa nở muộn đôi khi lại là bông hoa kết tinh được nhiều hương sắc và mạnh mẽ nhất qua mùa đông giá rét. 🍀",
+            "Mừng ngày 20/10! Không cần phải vội vã chứng minh điều gì với thế giới, cuộc đời này là của bạn, chỉ cần bạn thấy mỗi bước đi của mình đều thanh thản là bạn đã thành công. 🚶‍♀️",
+            "Gửi lời chúc hạnh phúc nhất đến bạn ngày 20/10. Hãy mở rộng lòng mình để bao dung cả những điều không hoàn hảo, vì chính những vết nứt mới là nơi ánh sáng có thể lọt vào tâm hồn. 💖",
+            "Chúc bạn ngày 20/10 ngập tràn sắc hoa. Đừng để những định kiến của xã hội định hình giới hạn của bạn, tâm hồn bạn là một tiểu vũ trụ tự do và xứng đáng được khai phá trọn vẹn. 🌸",
+            "Chúc bạn 20/10 vui vẻ. Mong bạn luôn tìm thấy sự thăng bằng giữa lý trí và cảm xúc, để dẫu có đi qua bao nhiêu thăng trầm, ánh mắt bạn vẫn giữ trọn nét tinh anh và an nhiên. ⚖️",
+            "Chúc mừng ngày Phụ nữ Việt Nam! Mong bạn có một trái tim đủ ấm để sưởi ấm người khác, nhưng cũng có một nội lực đủ lạnh để bảo vệ ranh giới bình yên của riêng mình. ❄️",
+            "Gửi lời chúc 20/10 tốt đẹp nhất đến người bạn tôi trân quý. Sống một đời bình dị không có nghĩa là tầm thường, đó là đỉnh cao của sự thấu hiểu sau khi đã đi qua mọi ồn ào. ❤️",
+            "Chúc bạn 20/10 rực rỡ và viên mãn. Hãy để những muộn phiền cũ trôi theo dòng nước trôi đi, giữ lại sự tĩnh lặng để lắng nghe giai điệu hạnh phúc vốn luôn ngân vang bên trong bạn. 🌹",
+            "Chúc bạn luôn giữ được ngọn lửa đam mê. Nhưng hãy sưởi ấm nó bằng một tâm thế dung dị, không cuồng nhiệt đến mức tự thiêu rụi bản thân, biết đủ để hành trình luôn bền vững. 🔥",
+            "Mừng ngày 20/10! Chúc bạn luôn là một thực thể độc lập, tự tin và đầy kiêu hãnh, sở hữu một cuộc đời nhẹ nhàng, tự tại mà không một thế lực nào có thể làm lay chuyển. ✨"
+
         ];
 
         function generateSpecialMessage() {
@@ -220,16 +335,18 @@
             createConfettiEffect();
         }
 
-        // Tối ưu số lượng pháo hoa trên mobile (khoảng 60 mảnh) để không gây đứng máy
         function createConfettiEffect() {
             const colors = ['#ff477e', '#ff7096', '#ffb3c6', '#ffd166', '#06d6a0', '#118ab2'];
+            const isMobile = window.innerWidth <= 768;
+            const count = isMobile ? 60 : 130; 
             
-            for (let i = 0; i < 60; i++) {
+            for (let i = 0; i < count; i++) {
                 const confetti = document.createElement('div');
                 confetti.classList.add('confetti-piece');
                 
                 confetti.style.left = Math.random() * 100 + 'vw';
                 confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
                 confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
                 
                 const size = Math.random() * 5 + 6; // Kích thước mảnh pháo hoa vừa phải trên mobile
