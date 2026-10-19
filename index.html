@@ -331,16 +331,33 @@
     <!-- NÚT QR NHỎ ẨN GÓC TRÊN PHẢI -->
     <div id="qrBtn" title="Tạo mã QR chia sẻ trang này" onclick="showQR()">📱</div>
 
-    <!-- MODAL HIỆN QR -->
-    <div id="qrModal" onclick="closeQR(event)">
-        <div class="qr-box" onclick="event.stopPropagation()">
-            <button class="close-qr" onclick="closeQR()">×</button>
-            <h3>Quét mã để vào trang</h3>
-            <p>Chia sẻ lời chúc 20/10 này cho người ấy nhé ✨</p>
-            <img id="qrImage" src="" alt="QR Code">
+<!-- MODAL HIỆN QR -->
+<div id="qrModal" onclick="closeQR(event)">
+    <div class="qr-box" onclick="event.stopPropagation()">
+        <button class="close-qr" onclick="closeQR()">×</button>
+        <h3>Quét mã để vào trang</h3>
+        <p>Chia sẻ lời chúc 20/10 này cho người ấy nhé ✨</p>
+        <img id="qrImage" src="" alt="QR Code">
+        
+        <!-- NÚT RESET MINI BÉ BÉ -->
+        <div style="margin-top: 12px; text-align: center;">
+            <button onclick="resetTestLimit()" style="
+                background: transparent; 
+                color: #b0bec5; 
+                border: 1px solid #e0e0e0;
+                font-size: 10px; 
+                padding: 3px 8px; 
+                border-radius: 10px; 
+                box-shadow: none; 
+                width: auto;
+                cursor: pointer;
+                transition: all 0.2s;
+            " onmouseover="this.style.color='#d11a5b'; this.style.borderColor='#d11a5b';" onmouseout="this.style.color='#b0bec5'; this.style.borderColor='#e0e0e0';">
+                ⚙️ Reset test
+            </button>
         </div>
     </div>
-
+</div>
     <div class="card">
         <h1>Happy Women's Day</h1>
         <div class="subtitle">Gửi lời chúc 20/10 ngọt ngào</div>
@@ -543,5 +560,33 @@
             }
         }, 1000);
     }
+// =========================================================
+// HÀM RESET DÙNG ĐỂ TEST (GẮN TRONG MODAL QR)
+// =========================================================
+function resetTestLimit() {
+    // Xóa dữ liệu ngày đã bấm trong localStorage
+    localStorage.removeItem("lastClickedDate");
+    
+    // Lấy lại nút bấm
+    const submitBtn = document.getElementById("submitBtn");
+    
+    // Khôi phục lại trạng thái ban đầu của nút
+    submitBtn.disabled = false;
+    submitBtn.innerText = "Chạm vào đây để nhận thông điệp ✨";
+    submitBtn.style.background = "linear-gradient(135deg, #d11a5b, #ff6b8b)";
+    submitBtn.style.cursor = "pointer";
+    submitBtn.style.boxShadow = "0 8px 15px rgba(209, 26, 91, 0.2)";
+    submitBtn.style.opacity = "1";
+    
+    // Ẩn khung kết quả đi nếu muốn
+    document.getElementById("resultBox").style.display = "none";
+    document.getElementById("visitorName").value = "";
+
+    // Thông báo nhỏ cho bạn biết đã reset thành công
+    alert("Đã reset thành công! Bây giờ bạn có thể test lại từ đầu.");
+    
+    // Đóng modal QR lại luôn cho gọn
+    document.getElementById('qrModal').style.display = 'none';
+}
 </script></body>
 </html>
