@@ -451,13 +451,16 @@
         }
 
         // ========== HÀM TẠO & HIỆN QR ==========
-        function showQR() {
-            const currentUrl = "womensday-blue-alpha.vercel.app";
-            // Dùng API miễn phí tạo QR
-            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(currentUrl)}&color=d11a5b`;
-            document.getElementById('qrImage').src = qrUrl;
-            document.getElementById('qrModal').style.display = 'flex';
-        }
+  function showQR() {
+    const currentUrl = "https://womensday-blue-alpha.vercel.app/";
+
+    // Tạo mã QR chứa đường dẫn website đầy đủ
+    const qrUrl =
+        `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(currentUrl)}&color=d11a5b`;
+
+    document.getElementById('qrImage').src = qrUrl;
+    document.getElementById('qrModal').style.display = 'flex';
+}
 
         function closeQR(e) {
             // Nếu click vào nền đen hoặc nút × thì đóng
