@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Gửi Lời Yêu Thương 20/10</title>
+    <title>Thông Điệp Mỗi Ngày</title>
     <!-- Font chữ nghệ thuật -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
@@ -344,7 +344,7 @@
     <div class="qr-box" onclick="event.stopPropagation()">
         <button class="close-qr" onclick="closeQR()">×</button>
         <h3>Quét mã để vào trang</h3>
-        <p>Chia sẻ lời chúc 20/10 này cho người ấy nhé ✨</p>
+        <p>Chia sẻ thông điệp tích cực này với mọi người nhé ✨</p>
         <img id="qrImage" src="" alt="QR Code">
         
         <!-- NÚT RESET MINI BÉ BÉ -->
@@ -367,8 +367,8 @@
     </div>
 </div>
     <div class="card">
-        <h1>Happy Women's Day</h1>
-        <div class="subtitle">Gửi lời chúc 20/10 ngọt ngào</div>
+        <h1>Thông Điệp Mỗi Ngày</h1>
+        <div class="subtitle">Một lời nhắn tích cực dành riêng cho bạn</div>
         
         <div class="input-wrapper">
             <input type="text" id="visitorName" placeholder="Nhập tên của bạn hoặc người ấy..." autocomplete="off">
@@ -382,58 +382,28 @@
     </div>
 
     <script>
-        // Danh sách câu chúc có chiều sâu tâm lý lắng đọng sâu sắc
+        // Những thông điệp tích cực để bắt đầu ngày mới
         const wishes = [
-            "Chúc bạn ngày 20/10 ngập tràn yêu thương. Mong bạn hiểu rằng thế giới ngoài kia dẫu có vội vã, chỉ cần giữ được một góc lặng trong tim, mọi bão giông đều hóa thành mây khói. 🌸",
-            "Ngày 20/10 chúc bạn luôn rạng rỡ như ánh mai. Nhưng hơn cả sự tỏa sáng bên ngoài, mong tâm bạn kiên định như ngọn núi để không bị lay chuyển bởi những lời phán xét hay kỳ vọng của người đời. ✨",
-            "Gửi đến bạn lời chúc 20/10 ấm áp nhất. Ý nghĩa thực sự của cuộc sống không nằm ở những điều lớn lao, mong bạn mỗi ngày thức dậy đều thấy lòng đủ rộng để bao dung cho chính những vết thương cũ. ❤️",
-            "Chúc bạn một ngày Phụ nữ Việt Nam thật ý nghĩa. Mong bạn nhận ra hành trình rực rỡ nhất không phải là đi đến đỉnh cao, mà là tìm lại được sự tự tại và nguyên bản trong tâm hồn mình. 🌹",
-            "Ngày 20/10 này, mong bạn học được cách thương mình trước khi thương người khác. Đôi khi buông bỏ một kỳ vọng sai lầm lại là cách tốt nhất để đón nhận một đời an yên, tự do đúng nghĩa. 🍃",
-            "Chúc bạn luôn xinh đẹp và tự tin. Nhưng hãy nhớ rằng vẻ đẹp tối thượng của người phụ nữ là sự tĩnh lặng trước nghịch cảnh, giữ vững một tâm thế thản nhiên dù dòng đời có xoay vần ra sao. 🚀",
-            "Mong rằng ngày 20/10 mang đến cho bạn những khoảnh khắc vui vẻ. Và mong bạn sớm nhận ra, món quà xa xỉ nhất thế gian này chính là một trái tim tự do, không thuộc về bất kỳ sự ràng buộc nào. 💖",
-            "Chúc người phụ nữ tuyệt vời hôm nay có một ngày trọn vẹn. Người ta thường chúc bạn hạnh phúc, nhưng tôi mong tâm bạn luôn đủ sáng để nhìn thấu rằng hạnh phúc vốn dĩ tự thân chứ chẳng cầu cạnh từ ai. ☀️",
-            "Chào ngày 20/10! Sống một cuộc đời nhẹ tênh không phải là trốn chạy trách nhiệm, mà là khi bạn biết yêu lấy cả những phần chưa hoàn hảo của bản thân mình mà không mưu cầu sự công nhận. 🌊",
-            "Gửi ngàn lời chúc tốt đẹp nhất đến bạn ngày 20/10. Mong bạn giữa những lo toan cơm áo vẫn thỉnh thoảng dừng lại, để lắng nghe tiếng nói sâu thẳm của đứa trẻ bên trong đang cần được vỗ về. 🍀",
-            "Chúc bạn 20/10 ngập tràn niềm vui. Hạnh phúc không phải là có tất cả mọi thứ, mà là khi lòng bạn không còn gợn chút âu lo, thong dong bước đi mà không cần nhìn lại quá khứ. 🌸",
-            "Mừng ngày 20/10, chúc bạn có đủ mạnh mẽ để tiến về phía trước. Nhưng cũng mong bạn đủ dịu dàng với chính mình, chấp nhận rằng có những ngày yếu lòng cũng là một loại sức mạnh. ✨",
-            "Chúc bạn một ngày 20/10 thật rực rỡ bên những người thân yêu. Đi qua nửa đời người mới hiểu, bình an đích thực là khi đứng trước một người từng làm mình tổn thương mà lòng không còn chút gợn sóng. ❤️",
-            "Gửi đóa hoa lòng tặng bạn ngày 20/10. Cuộc sống này vốn dĩ là một dòng chảy, mong tâm bạn không cố chấp bám víu vào bất cứ điều gì, cứ thuận theo tự nhiên mà an lành, tự tại. 🌹",
-            "Chúc bạn 20/10 ngọt ngào. Trang sức lộng lẫy nhất của người phụ nữ không phải vàng ngọc, mà là năng lượng từ một tâm hồn đã đi qua nhiều đổ vỡ nhưng vẫn giữ được sự thiện lương, trong trẻo. 💎",
-            "Ngày 20/10, chúc bạn gặt hái được nhiều thành công trong sự nghiệp. Nhưng đừng quên quay về chăm sóc thế giới bên trong, bởi nếu ngôi nhà nội tại không vững, mọi lâu đài bên ngoài cũng chỉ là hư vô. 🌟",
-            "Chúc bạn luôn giữ được nụ cười trong sáng. Giữa một thế giới luôn đòi hỏi người phụ nữ phải hoàn hảo, mong bạn can đảm sống thật với cảm xúc của mình, dẫu đó là những vết xước thầm kín. 🎈",
-            "Mong bạn ngày 20/10 nhận được thật nhiều sự trân trọng. Nhưng trên hết, mong bạn không cần đợi ai ban phát sự trân trọng ấy, tự mình nâng niu và làm chủ cuộc đời mình mới là chân lý. ☁️",
-            "Chúc mừng ngày Phụ nữ Việt Nam! Đừng chỉ sống như một đóa hồng rực rỡ chỉ để người ta ngắm nghía, hãy sống như một nhành cỏ dại, âm thầm bám rễ sâu vào đất và kiêu hãnh sinh tồn. 🌿",
-            "Gửi lời chúc bình an nhất đến bạn ngày 20/10. Khi bạn có đủ tĩnh lặng để cảm nhận hiện tại, bạn sẽ thấy mọi danh vọng bấy lâu nay theo đuổi suy cho cùng cũng chỉ là mây khói thoảng qua. 💖",
-            "Chúc bạn một ngày 20/10 ngập tràn năng lượng. Mong tâm bạn phẳng lặng như mặt hồ mùa thu, không phải vì cuộc đời không có sóng gió, mà vì bạn đã học được cách làm hòa với chúng. 🍁",
-            "Chúc người bạn trân quý ngày 20/10 hạnh phúc. Khi lòng không còn chấp niệm vào việc đúng hay sai, thắng hay thua, đó chính là thời điểm sự bình an tự khắc gõ cửa cuộc đời bạn. ✨",
-            "Ngày 20/10 chúc bạn có một tâm hồn nở hoa. Sống ở đời, điều khó nhất không phải là nhìn thấu tâm can người khác, mà là đối diện thẳng thắn và ôm lấy những phần tối tăm nhất của chính mình. 🌸",
-            "Gửi bạn lời chúc 20/10 chân thành nhất. Mong bạn bớt nhìn vào những gì mình chưa có, học cách biết ơn những gì đang hiện hữu, bởi sự đủ đầy đích thực bắt nguồn từ một trái tim biết đủ. ❤️",
-            "Chúc bạn luôn xinh đẹp theo dòng thời gian. Người phụ nữ trí tuệ là người biết dùng sự im lặng đúng lúc để chữa lành, dùng sự thản nhiên để bước qua những nhiễu nhương của cuộc đời. 🌹",
-            "Mừng ngày 20/10, chúc bạn luôn tìm thấy niềm vui từ những điều nhỏ nhặt. Khi tâm bạn không còn chứa đựng những oán hận, khoảng trống ấy tự động sẽ được lấp đầy bởi ánh nắng và tình yêu. ☀️",
-            "Chúc bạn 20/10 tràn đầy tiếng cười. Hãy cứ để sự bình an dẫn lối, vì tất cả những hào nhoáng ngoài kia nếu phải đánh đổi bằng sự bất an trong lòng thì đều là một giao dịch thua lỗ. 🧭",
-            "Mong bạn ngày 20/10 tràn ngập hoa hồng. Tự do thực sự không phải là làm những gì mình thích, mà là khi bạn có đủ dũng khí để từ chối những giá trị không thuộc về bản chất của mình. 🕊️",
-            "Gửi lời chúc 20/10 ngọt ngào đến bạn. Mong bạn sống một đời an ổn, không phải vì thế giới này ngừng bão giông, mà vì bạn đã tự xây cho mình một đức tin vững chãi bên trong cơ thể. 🍀",
-            "Chúc bạn ngày 20/10 vạn sự hanh thông. Người có tâm không chấp niệm, nhìn mọi thứ bằng đôi mắt thấu suốt sẽ nhận ra vấp ngã hay thành công đều là những bài học cần thiết để trưởng thành. 💖",
-            "Chúc mừng ngày 20/10! Sống thong dong tự tại là khi bạn không còn bị ảnh hưởng bởi những lời khen chê, biết mình là ai và lặng lẽ tỏa hương theo cách riêng của mình. 🍃",
-            "Chúc bạn một ngày 20/10 ngập tràn tình yêu thương. Lòng bao dung lớn nhất không phải là tha thứ cho người khác, mà là tha thứ cho những sai lầm trong quá khứ của chính bản thân mình. 🥰",
-            "Ngày 20/10 chúc bạn luôn tươi trẻ. Đừng vội vã chạy theo những tiêu chuẩn của đám đông, vẻ đẹp sâu sắc nhất của người phụ nữ chính là nét bình yên toát ra từ một trí tuệ chín chắn. 🌸",
-            "Gửi lời chúc bình an và may mắn nhất đến bạn nhân ngày 20/10. Đi khắp thế gian, bến đỗ an toàn nhất không phải là một bờ vai, mà là khi bản thân bạn trở thành một điểm tựa vững vàng. ❤️",
-            "Chúc bạn 20/10 thật nhiều niềm vui. Mong lòng bạn an tĩnh như đêm rằm, dùng sự thấu hiểu để bao dung cho những điều bất như ý, biến nghịch cảnh thành chất liệu của sự tự tại. 🌕",
-            "Chúc người phụ nữ tuyệt vời ngày 20/10 tràn đầy năng lượng. Khi bạn ngừng cố gắng thay đổi người khác và bắt đầu chấp nhận họ như họ vốn là, bạn sẽ thấy cuộc đời nhẹ đi một nửa. 🌹",
-            "Mừng ngày Phụ nữ Việt Nam! Hãy cứ kiên cường tỏa sáng khi cần, nhưng cũng hãy cho phép mình được buông lơi, được lười biếng để cơ thể và tâm hồn được tái tạo trong sự bình lặng. 🔋",
-            "Chúc bạn ngày 20/10 nhận được nhiều lời chúc hay. Mong bạn sống một cuộc đời thanh cao, nơi mà giá trị của bạn được đo bằng sự bình yên bạn mang lại cho những người xung quanh. ✨",
-            "Gửi ngàn đóa hồng yêu thương đến bạn ngày 20/10. Mong bạn luôn an trú trong hiện tại, bởi quá khứ đã qua và tương lai thì chưa đến, chỉ có phút giây này là liều thuốc chữa lành tốt nhất. 💐",
-            "Chúc bạn 20/10 luôn tràn đầy nụ cười rạng rỡ. Hãy nhớ rằng khi tâm bạn đạt đến trạng thái không mong cầu, bạn sẽ không còn sợ hãi bất cứ sự mất mát hay chia ly nào trên đời. 💎",
-            "Chúc bạn một ngày 20/10 ấm áp vô ngần. Cứ thong dong mà sống, bởi vì bông hoa nở muộn đôi khi lại là bông hoa kết tinh được nhiều hương sắc và mạnh mẽ nhất qua mùa đông giá rét. 🍀",
-            "Mừng ngày 20/10! Không cần phải vội vã chứng minh điều gì với thế giới, cuộc đời này là của bạn, chỉ cần bạn thấy mỗi bước đi của mình đều thanh thản là bạn đã thành công. 🚶‍♀️",
-            "Gửi lời chúc hạnh phúc nhất đến bạn ngày 20/10. Hãy mở rộng lòng mình để bao dung cả những điều không hoàn hảo, vì chính những vết nứt mới là nơi ánh sáng có thể lọt vào tâm hồn. 💖",
-            "Chúc bạn ngày 20/10 ngập tràn sắc hoa. Đừng để những định kiến của xã hội định hình giới hạn của bạn, tâm hồn bạn là một tiểu vũ trụ tự do và xứng đáng được khai phá trọn vẹn. 🌸",
-            "Chúc bạn 20/10 vui vẻ. Mong bạn luôn tìm thấy sự thăng bằng giữa lý trí và cảm xúc, để dẫu có đi qua bao nhiêu thăng trầm, ánh mắt bạn vẫn giữ trọn nét tinh anh và an nhiên. ⚖️",
-            "Chúc mừng ngày Phụ nữ Việt Nam! Mong bạn có một trái tim đủ ấm để sưởi ấm người khác, nhưng cũng có một nội lực đủ lạnh để bảo vệ ranh giới bình yên của riêng mình. ❄️",
-            "Gửi lời chúc 20/10 tốt đẹp nhất đến người bạn tôi trân quý. Sống một đời bình dị không có nghĩa là tầm thường, đó là đỉnh cao của sự thấu hiểu sau khi đã đi qua mọi ồn ào. ❤️",
-            "Chúc bạn 20/10 rực rỡ và viên mãn. Hãy để những muộn phiền cũ trôi theo dòng nước trôi đi, giữ lại sự tĩnh lặng để lắng nghe giai điệu hạnh phúc vốn luôn ngân vang bên trong bạn. 🌹",
-            "Chúc bạn luôn giữ được ngọn lửa đam mê. Nhưng hãy sưởi ấm nó bằng một tâm thế dung dị, không cuồng nhiệt đến mức tự thiêu rụi bản thân, biết đủ để hành trình luôn bền vững. 🔥",
-            "Mừng ngày 20/10! Chúc bạn luôn là một thực thể độc lập, tự tin và đầy kiêu hãnh, sở hữu một cuộc đời nhẹ nhàng, tự tại mà không một thế lực nào có thể làm lay chuyển. ✨"
+            "Chúc bạn bắt đầu ngày mới với một nụ cười. Những điều tốt đẹp thường bắt đầu từ một tâm thế tích cực. 🌸",
+            "Hãy tin vào bản thân: bạn đã vượt qua nhiều điều khó khăn hơn những gì hôm nay đang thử thách bạn. ✨",
+            "Không cần phải hoàn hảo mới xứng đáng được yêu thương. Hãy dịu dàng với chính mình nhé. ❤️",
+            "Mỗi bước nhỏ bạn đi hôm nay đều đang đưa bạn đến gần hơn với điều mình mong muốn. 🌱",
+            "Nếu hôm nay chưa như ý, hãy nhớ rằng ngày mai luôn là một cơ hội mới để bắt đầu. ☀️",
+            "Bạn không cần so sánh hành trình của mình với ai khác. Cứ tiến về phía trước theo nhịp riêng của bạn. 🦋",
+            "Dành cho mình một chút nghỉ ngơi cũng là cách để tiếp tục mạnh mẽ hơn. Hãy lắng nghe cơ thể nhé. 🍃",
+            "Một lời tử tế bạn trao đi có thể làm ngày của ai đó trở nên tươi sáng hơn. 💖",
+            "Hãy trân trọng những điều nhỏ bé đang khiến bạn mỉm cười hôm nay. Đó cũng là hạnh phúc. 🌼",
+            "Bạn có quyền bắt đầu lại, đổi hướng và chọn điều khiến mình bình yên hơn. 🕊️",
+            "Khó khăn không định nghĩa con người bạn; cách bạn kiên trì bước tiếp mới làm nên điều đó. 💪",
+            "Hôm nay, hãy làm điều tốt nhất có thể với những gì bạn đang có. Như vậy đã rất đáng tự hào rồi. 🌟",
+            "Đừng quên dành cho bản thân sự bao dung mà bạn vẫn luôn dành cho những người mình yêu quý. 🥰",
+            "Chậm lại một chút, hít thở thật sâu và để tâm trí được nghỉ ngơi. Bạn không cần phải vội. 🌿",
+            "Một ngày bình thường cũng có thể trở nên đặc biệt khi bạn biết ơn những điều mình đang có. ☁️",
+            "Hãy để những sai lầm hôm qua trở thành bài học, không phải lý do để bạn nghi ngờ chính mình. 📖",
+            "Bạn xứng đáng với những mối quan hệ khiến mình được tôn trọng, lắng nghe và là chính mình. 🤍",
+            "Cứ kiên nhẫn với ước mơ của bạn. Những điều ý nghĩa thường cần thời gian để nảy nở. 🌷",
+            "Niềm vui hôm nay có thể đến từ một tách trà, một cuộc trò chuyện hay một khoảnh khắc yên bình. ☕",
+            "Dù hôm nay thế nào, hãy nhớ bạn không cần phải giải quyết mọi thứ cùng một lúc. Từng bước một thôi. 🌈"
         ];
 
                function createConfettiEffect() {
@@ -489,8 +459,16 @@
         checkButtonStatus();
     });
 
+    function getLocalDateKey() {
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        return `${year}-${month}-${day}`;
+    }
+
     function checkButtonStatus() {
-        const today = new Date().toISOString().slice(0, 10);
+        const today = getLocalDateKey();
         const lastClickedDate = localStorage.getItem("lastClickedDate");
         const submitBtn = document.getElementById("submitBtn");
 
@@ -519,7 +497,7 @@
         }
 
         // Lấy ngày hiện tại (YYYY-MM-DD)
-        const today = new Date().toISOString().slice(0, 10);
+        const today = getLocalDateKey();
 
         // Hiển thị thông điệp và hiệu ứng pháo hoa
         document.getElementById("sayHello").innerText = `Thân gửi ${nameInput} ✨`;
